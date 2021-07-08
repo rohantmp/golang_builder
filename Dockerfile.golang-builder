@@ -1,0 +1,13 @@
+FROM centos-base
+
+
+RUN yum install -y libstoragemgmt libstoragemgmt-devel
+
+RUN yum install -y golang go-toolset make git gcc 
+RUN mkdir -p /go && chmod -R 777 /go 
+
+
+ENV GOPATH=/go \
+    BASH_ENV=/opt/rh/go-toolset/enable \
+    ENV=/opt/rh/go-toolset/enable \
+    PROMPT_COMMAND=". /opt/rh/go-toolset/enable"
